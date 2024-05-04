@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  amocrm:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    container_name: amocrm
+    ports:
+      - "8080:80"
+    environment:
+      - COMPOSER_ALLOW_SUPERUSER=1
+      - COMPOSER_ALLOW_PLUGINS=1
+    volumes:
+      - ./../:/var/www/html
